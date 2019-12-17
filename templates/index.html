@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends "bootstrap/base.html"%}
+
+{% block content %}
 
 <head>
 
@@ -11,15 +12,15 @@
   <title>Panamá</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{url_for('static',filename='bootstrap.min.css')}}" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+  <link href="{{url_for('static',filename='all.min.css')}}" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/grayscale.min.css" rel="stylesheet">
+  <link href="{{url_for('static',filename='grayscale.min.css')}}" rel="stylesheet">
 
 </head>
 
@@ -68,7 +69,7 @@
           <p class="text-white-50">Debido a su posición geográfica única, Panamá tiene un patrimonio histórico abundante. Por cientos de años Panamá ha servido como un cruce tanto marítimo como también territorial. Fue cerca de la actual cuidad de Panamá que el conquistador español Vasco Núñez de Balboa fue el primer europeo en haber contemplado el Océano Pacifico. Cristóbal Colón también hizo visitas frecuentes para explorar las costas caribeñas del país. Incluso, Colón hizo el intento de establecer una colonia en el norte del país - Bocas de Toro. Más tarde en su historia, el Presidente norteamericano Teodoro Roosevelt llegó a Panamá para inspeccionar el progreso del Canal de Panamá. Para el Presidente, esta obra fue el logro más importante de su presidencia.
          </div>
       </div>
-      <img src="img/pa2.jpg" class="img-fluid" alt="">
+      <img src="{{url_for('static',filename='pa2.jpg')}}" class="img-fluid" alt="">
     </div>
   </section>
 
@@ -79,7 +80,7 @@
       <!-- Featured Project Row -->
       <div class="row align-items-center no-gutters mb-4 mb-lg-5">
         <div class="col-xl-8 col-lg-7">
-          <img class="img-fluid mb-3 mb-lg-0" src="img/pacasco.jpg" alt="">
+          <img class="img-fluid mb-3 mb-lg-0" src="{{url_for('static',filename='pacasco.jpg')}}" alt="">
         </div>
         <div class="col-xl-4 col-lg-5">
           <div class="featured-text text-center text-lg-left">
@@ -92,7 +93,7 @@
       <!-- Project One Row -->
       <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
         <div class="col-lg-6">
-          <img class="img-fluid" src="img/pa4.jpg" alt="">
+          <img class="img-fluid" src="{{url_for('static',filename='pa4.jpg')}}" alt="">
         </div>
         <div class="col-lg-6">
           <div class="bg-black text-center h-100 project">
@@ -112,7 +113,7 @@
       <!-- Project Two Row -->
       <div class="row justify-content-center no-gutters">
         <div class="col-lg-6">
-          <img class="img-fluid" src="img/pavieja.jpg" alt="">
+          <img class="img-fluid" src="{{url_for('static',filename='pavieja.jpg')}}" alt="">
         </div>
         <div class="col-lg-6 order-lg-first">
           <div class="bg-black text-center h-100 project">
@@ -214,17 +215,24 @@
       Copyright &copy; Jhustin27
     </div>
   </footer>
+</body>
+{% endblock %}
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='grayscale.css')}}">
+{% endblock %}
+
+{% block scripts %}
+ <!-- Bootstrap core JavaScript -->
+  <script src="{{url_for('static',filename='jquery.min.js')}}"></script>
+  <script src="{{url_for('static',filename='bootstrap.bundle.min.js')}}"></script>
 
   <!-- Plugin JavaScript -->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="{{url_for('static',filename='jquery.easing.min.js')}}"></script>
 
   <!-- Custom scripts for this template -->
-  <script src="js/grayscale.min.js"></script>
-
-</body>
-
-</html>
+  <script src="{{url_for('static',filename='grayscale.min.js')}}"></script>
+{{super()}}
+{% endblock %}
